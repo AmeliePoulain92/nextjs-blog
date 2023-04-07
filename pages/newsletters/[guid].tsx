@@ -1,19 +1,36 @@
 import { ReactElement } from "react";
-import {PageConfig} from 'next';
+import { PageConfig } from "next";
 
 export const config: PageConfig = {
-	unstable_runtimeJS: false,
-  unstable_excludeFiles: ['_next/static/chunks/react-refresh.js']
+  unstable_runtimeJS: false,
+  unstable_excludeFiles: ["_next/static/chunks/react-refresh.js"],
 };
 
 // Content Components
 import Newsletter from "@newsletter/components/content/Newsletter";
 // interfaces
 import { NewsLetter as NewsLetterInterface } from "@newsletter/utils/interfaces";
-import { getNewsletterByGuid } from "@newsletter/services/newsletter.service";
+// import { getNewsletterByGuid } from "@newsletter/services/newsletter.service";
 import MainLayout from "@newsletter/layouts/MainLayout";
 import NewsletterWrapper from "@newsletter/components/layout/NewsletterWrapper";
 import sortData from "@newsletter/utils/sortData";
+
+const isDevENV = process.env.NODE_ENV !== "production";
+const API_BASE_URL = isDevENV
+  ? "https://localhost:5001"
+  : "https://adminapi.bevnet.com";
+async function getNewsletterByGuid(guid: string) {
+  const url = `${API_BASE_URL}/Newsletters/public/${guid}`;
+  const res = await fetch(url, {
+    headers: {
+      "content-type": "application/json",
+      "Access-Control-Allow-Origin": API_BASE_URL,
+    },
+  });
+  const data = await res.json();
+
+  return data;
+};
 
 export default function Newsletters(data: NewsLetterInterface) {
   return (
@@ -28,28 +45,7 @@ Newsletters.getLayout = function (page: ReactElement) {
 };
 
 // This gets called on every request
- async function getServerSideProps(context: any) {
-  const isDevENV = process.env.NODE_ENV !== 'production';
-
-// bypassing SSL certificate locally
-if (isDevENV) {
-    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-}
-
- const API_BASE_URL = isDevENV ? 'https://localhost:5001' : 'https://adminapi.bevnet.com'
-  async function getNewsletterByGuid(guid: string) {
-    const url = `${API_BASE_URL}/Newsletters/public/${guid}`;
-    const res = await fetch(url, {
-        headers: {
-            "content-type": "application/json",
-            "Access-Control-Allow-Origin": API_BASE_URL,
-        },
-    });
-    const data = await res.json();
-
-    return data;
-}
-
+async function getServerSideProps(context: any) {
   const { params } = context;
   try {
     const data = await getNewsletterByGuid(params.guid);
