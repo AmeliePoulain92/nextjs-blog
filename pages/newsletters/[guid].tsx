@@ -30,7 +30,7 @@ Newsletters.getLayout = function (page: ReactElement) {
 // This gets called on every request
 export async function getServerSideProps(context: any) {
   const isDevENV = process.env.NODE_ENV !== 'production';
-  const API_BASE_URL = isDevENV ? 'https://localhost:5001' : 'https://api.jsonserve.com/E_PBU4';
+  const API_BASE_URL = isDevENV ? 'https://api.jsonserve.com/E_PBU4' : 'https://api.jsonserve.com/E_PBU4';
   async function getNewsletterByGuid(guid: string) {
     const url = `${API_BASE_URL}/Newsletters/public/${guid}`;
     const res = await fetch(url, {
