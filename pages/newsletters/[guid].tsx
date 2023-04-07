@@ -28,11 +28,32 @@ Newsletters.getLayout = function (page: ReactElement) {
 };
 
 // This gets called on every request
-export async function getServerSideProps(context: any) {
+ async function getServerSideProps(context: any) {
+  const isDevENV = process.env.NODE_ENV !== 'production';
+
+// bypassing SSL certificate locally
+if (isDevENV) {
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+}
+
+ const API_BASE_URL = isDevENV ? 'https://localhost:5001' : 'https://adminapi.bevnet.com'
+  async function getNewsletterByGuid(guid: string) {
+    const url = `${API_BASE_URL}/Newsletters/public/${guid}`;
+    const res = await fetch(url, {
+        headers: {
+            "content-type": "application/json",
+            "Access-Control-Allow-Origin": API_BASE_URL,
+        },
+    });
+    const data = await res.json();
+
+    return data;
+}
+
   const { params } = context;
   try {
-    // const data = await getNewsletterByGuid(params.guid);
-    const data = (await fetch('https://api.jsonserve.com/E_PBU4')).json();
+    const data = await getNewsletterByGuid(params.guid);
+    // const data = (await fetch('https://api.jsonserve.com/E_PBU4')).json();
     // @ts-ignore
     const sortedData = sortData(data);
 
