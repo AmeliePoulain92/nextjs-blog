@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // TODO add robots.txt to public folder?
 export async function getNewsletterByGuid(guid: string): Promise<NewsLetter> {
-    const url = `https://api.jsonserve.com/${guid}`;
+    const url = `${process.env.API_BASE_URL}/${guid}`;
     const res = await fetch(url);
     const data = await res.json();
 
