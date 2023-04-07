@@ -31,7 +31,9 @@ Newsletters.getLayout = function (page: ReactElement) {
 export async function getServerSideProps(context: any) {
   const { params } = context;
   try {
-    const data = await getNewsletterByGuid(params.guid);
+    // const data = await getNewsletterByGuid(params.guid);
+    const data = (await fetch('https://api.jsonserve.com/E_PBU4')).json();
+    // @ts-ignore
     const sortedData = sortData(data);
 
     return {
