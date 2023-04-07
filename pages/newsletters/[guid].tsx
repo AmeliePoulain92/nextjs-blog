@@ -8,6 +8,12 @@ import MainLayout from "@newsletter/layouts/MainLayout";
 import NewsletterWrapper from "@newsletter/components/layout/NewsletterWrapper";
 import sortData from "@newsletter/utils/sortData";
 
+import { PageConfig } from "next";
+
+export const config: PageConfig = {
+  unstable_runtimeJS: false,
+};
+
 export default function Newsletters(data: NewsLetterInterface) {
   return (
     <MainLayout>
