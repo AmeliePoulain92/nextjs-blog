@@ -10,7 +10,6 @@ interface StandardJobsProps {
 export default function StandardJobs({ data }: StandardJobsProps) {
   const getItems = getItemsByType(data, NewsletterItemType.StandardJobs);
 
-  // TODO add mailchimp custom logic here
   return getItems && getItems.length ? (
     <tr>
       <td style={{ paddingBottom: 15 }}>

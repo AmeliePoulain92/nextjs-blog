@@ -16,11 +16,9 @@ export default function Newsletter({ data }: NewsLetterProps) {
     <>
       <LeaderboardAd data={data} />
       {/* get only dynamic items, ordered by item.orderBy */}
-      {omitItems(data, staticOrderedItems)
-        // TODO add accessType condition
-        .map((item) => (
-          <NewsletterItem data={data} item={item} key={item.id} />
-        ))}
+      {omitItems(data, staticOrderedItems).map((item) => (
+        <NewsletterItem data={data} item={item} key={item.id} />
+      ))}
       <FeaturedJobs data={data} />
       <StandardJobs data={data} />
       <LeaderboardAdMessage data={data} />

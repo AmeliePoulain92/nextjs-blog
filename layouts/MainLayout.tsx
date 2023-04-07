@@ -9,7 +9,6 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
-    // TODO fix all the possible warnings (in the console of npm run start)
     <>
       <Header />
       <MainContent>{children}</MainContent>

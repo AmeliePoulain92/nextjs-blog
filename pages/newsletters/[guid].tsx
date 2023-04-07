@@ -1,11 +1,4 @@
 import { ReactElement } from "react";
-import {PageConfig} from 'next';
-
-export const config: PageConfig = {
-	unstable_runtimeJS: false,
-  unstable_excludeFiles: ['_next/static/chunks/react-refresh.js']
-};
-
 // Content Components
 import Newsletter from "@newsletter/components/content/Newsletter";
 // interfaces
