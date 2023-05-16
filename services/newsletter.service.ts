@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export async function getNewsletterByGuid(guid: string): Promise<NewsLetter> {
-    const url = `${process.env.API_BASE_URL}/Newsletters/public/${guid}`;
+    const url = `${process.env.API_BASE_URL}/${guid}`;
     const res = await fetch(url);
     const data = await res.json();
 
