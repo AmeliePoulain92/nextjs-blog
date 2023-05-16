@@ -1,4 +1,10 @@
-export default function HeaderBottom() {
+import { Theme as ThemeInterface } from "@newsletter/utils/interfaces";
+
+interface HeaderBottomProps {
+  theme: ThemeInterface;
+}
+
+export default function HeaderBottom({ theme }: HeaderBottomProps) {
   return (
     <tr>
       <td

@@ -1,10 +1,11 @@
-import { ThemeContext } from "@newsletter/context/ThemeContext";
+import { Theme as ThemeInterface } from "@newsletter/utils/interfaces";
 import { getCurrentDate } from "@newsletter/utils/mailchimpTags";
-import { useContext } from "react";
 
-export default function HeaderTop() {
-  const theme = useContext(ThemeContext);
+interface HeaderTopProps {
+  theme: ThemeInterface;
+}
 
+export default function HeaderTop({ theme }: HeaderTopProps) {
   return (
     <tr>
       <td className="headerTopCell" width="100%" style={{ padding: 15 }}>
