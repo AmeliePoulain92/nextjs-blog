@@ -10,7 +10,7 @@ export const theme: ThemeDataInterface = {
         targetSite: NewsSites.Bevnet,
         websiteLink: 'https://www.bevnet.com/',
         header: {
-            logo: 'https://d2btcxja5g5zgs.cloudfront.net/assets/img/BevNET_Red.png',
+            logo: 'https://d2azl42aua8mom.cloudfront.net/assets/images/n2/header-logo.svg',
             textColor: '#14a7bd',
             dateFontWeight: 400,
             titleColor: '#ffffff',

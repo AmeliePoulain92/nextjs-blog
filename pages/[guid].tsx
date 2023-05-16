@@ -9,6 +9,7 @@ import sortData from "@newsletter/utils/sortData";
 
 import { PageConfig } from "next";
 import PreviewText from "@newsletter/components/utils/PreviewText";
+import { ThemeContext } from "@newsletter/context/ThemeContext";
 import { theme } from "@newsletter/utils/constants";
 
 export const config: PageConfig = {
@@ -18,14 +19,14 @@ export const config: PageConfig = {
 
 export default function Newsletters(data: NewsLetterInterface) {
   return (
-    <>
+    <ThemeContext.Provider value={theme[data.targetSite]}>
       <PreviewText data={data} />
       <NewsletterWrapper>
-        <MainLayout theme={theme[data.targetSite]}>
+        <MainLayout>
           <Newsletter data={data} />
         </MainLayout>
       </NewsletterWrapper>
-    </>
+    </ThemeContext.Provider>
   );
 }
 
