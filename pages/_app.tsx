@@ -21,8 +21,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         {mainCss}
       </style>
       <Head>
-        {/* TODO check out if we need to provide a dynamic title */}
-        <title>Title</title>
+        <title>Daily Briefing</title>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -29,9 +29,11 @@ export default function FooterCopyright() {
           </span>{" "}
           <a
             href="https://www.bevnet.com/"
+            target="_blank"
             style={{
               fontWeight: 400,
               lineHeight: "16.1px",
+              textDecoration: "none !important",
               color: "#8c979a",
             }}
           >

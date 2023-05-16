@@ -64,6 +64,7 @@ export default function FooterInsider() {
                     Become an Insider to unlock every story on{" "}
                     <a
                       href="https://www.bevnet.com/"
+                      target="_blank"
                       style={{
                         fontWeight: "normal",
                         textDecoration: "none",
@@ -75,6 +76,7 @@ export default function FooterInsider() {
                     and{" "}
                     <a
                       href="https://www.nosh.com/"
+                      target="_blank"
                       style={{
                         fontWeight: "normal",
                         textDecoration: "none",

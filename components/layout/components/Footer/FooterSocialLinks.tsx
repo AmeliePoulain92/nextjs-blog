@@ -17,8 +17,10 @@ export default function FooterSocialLinks() {
               >
                 <a
                   href="https://www.facebook.com/bevnetcom"
+                  target="_blank"
                   style={{
                     display: "inline-block",
+                    textDecoration: "none !important",
                     padding: 0,
                     margin: 0,
                   }}
@@ -28,6 +30,7 @@ export default function FooterSocialLinks() {
                     alt="facebook"
                     width="18"
                     height="18"
+                    style={{ verticalAlign: "middle" }}
                   />
                 </a>
               </td>
@@ -39,8 +42,10 @@ export default function FooterSocialLinks() {
               >
                 <a
                   href="https://twitter.com/BevNET"
+                  target="_blank"
                   style={{
                     display: "inline-block",
+                    textDecoration: "none !important",
                     padding: 0,
                     margin: 0,
                   }}
@@ -50,6 +55,7 @@ export default function FooterSocialLinks() {
                     alt="twitter"
                     width="18"
                     height="18"
+                    style={{ verticalAlign: "middle" }}
                   />
                 </a>
               </td>
@@ -61,8 +67,10 @@ export default function FooterSocialLinks() {
               >
                 <a
                   href="https://www.instagram.com/bevnet/"
+                  target="_blank"
                   style={{
                     display: "inline-block",
+                    textDecoration: "none !important",
                     padding: 0,
                     margin: 0,
                   }}
@@ -72,6 +80,7 @@ export default function FooterSocialLinks() {
                     alt="twitter"
                     width="18"
                     height="18"
+                    style={{ verticalAlign: "middle" }}
                   />
                 </a>
               </td>
@@ -83,8 +92,10 @@ export default function FooterSocialLinks() {
               >
                 <a
                   href="https://www.linkedin.com/company/bevnet.com-inc"
+                  target="_blank"
                   style={{
                     display: "inline-block",
+                    textDecoration: "none !important",
                     padding: 0,
                     margin: 0,
                   }}
@@ -94,6 +105,7 @@ export default function FooterSocialLinks() {
                     alt="twitter"
                     width="18"
                     height="18"
+                    style={{ verticalAlign: "middle" }}
                   />
                 </a>
               </td>

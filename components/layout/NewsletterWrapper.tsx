@@ -69,7 +69,6 @@ export default function NewsletterWrapper({ children }: Props) {
                 </tr>
                 <tr>
                   <td
-                    // TODO check out TS complains
                     colSpan={3}
                     height="20"
                     style={{

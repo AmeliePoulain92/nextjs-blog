@@ -31,3 +31,7 @@ export function getEndMergeTag(accessType: NewsletterItemAccessType | undefined)
 export function getListDescription(): string {
     return "*|LIST:DESCRIPTION|*";
 }
+
+export function getUnsubscribeLink(): string {
+    return "*|UNSUB|*";
+}

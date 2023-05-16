@@ -8,6 +8,7 @@ export default function NonOutlookInsiderButton() {
         <a
             class="becomeAnInsiderButton"
             href="https://app.bevnet.com/subscribe"
+            target="_blank"
             style="
                 display: block;
                 padding: 15px 30px;

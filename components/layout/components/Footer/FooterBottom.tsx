@@ -23,16 +23,18 @@ export default function FooterBottom() {
               >
                 <p
                   style={{
-                    textAlign: "center",
-                    fontSize: 14,
+                    fontFamily: "Arial, sans-serif",
+                    fontSize: 15,
                     fontWeight: 400,
-                    lineHeight: "16px",
+                    lineHeight: "20px",
+                    textAlign: "center",
                     margin: 0,
                     color: "#006177",
                   }}
                 >
                   <a
                     href="https://www.bevnet.com/"
+                    target="_blank"
                     style={{
                       textDecoration: "none",
                       fontWeight: "normal",
@@ -42,8 +44,10 @@ export default function FooterBottom() {
                     BevNET.com
                   </a>
                   , Inc. 65 Chapel Street, Newton, MA 02458{" "}
+                  <br />
                   <a
                     href="mailto:hello@bevnet.com"
+                    target="_blank"
                     style={{
                       textDecoration: "none",
                       fontWeight: "normal",

@@ -1,6 +1,7 @@
 import { NewsletterItemType } from "@newsletter/utils/enums";
 import { getItemsByType } from "@newsletter/utils/getItems";
 import { NewsLetter as NewsLetterInterface } from "@newsletter/utils/interfaces";
+import SectionTitle from "./SectionTitle";
 
 interface LeaderboardAdMessageProps {
   data: NewsLetterInterface;
@@ -20,25 +21,9 @@ export default function LeaderboardAdMessage({
       <td>
         <table width="100%" cellPadding={0} cellSpacing={0} border={0}>
           <tbody>
+            <SectionTitle title="&#10024; Sponsored by &#10024;" />
             <tr>
-              <td align="center" style={{ paddingBottom: 15 }}>
-                <h2
-                  style={{
-                    fontFamily: "Arial, sans-serif",
-                    fontSize: 20,
-                    fontWeight: 700,
-                    lineHeight: "23px",
-                    textTransform: "uppercase",
-                    margin: 0,
-                    color: "#14a7bd",
-                  }}
-                >
-                  &#10024; Sponsored by &#10024;
-                </h2>
-              </td>
-            </tr>
-            <tr>
-              <td style={{ paddingBottom: 10 }}>
+              <td>
                 <h3
                   style={{
                     fontSize: 20,
@@ -46,32 +31,29 @@ export default function LeaderboardAdMessage({
                     lineHeight: "23.22px",
                     margin: 0,
                   }}
-                >
-                  {currentData.title}
-                </h3>
+                  dangerouslySetInnerHTML={{ __html: currentData?.title || "" }}
+                ></h3>
               </td>
             </tr>
-            {currentData?.showDescription && currentData?.description ? (
+            {currentData?.description ? (
               <tr>
-                <td style={{ paddingBottom: 20 }}>
-                  <p
-                    style={{
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "21px",
-                      margin: 0,
-                    }}
-                  >
-                    {currentData?.description}
-                  </p>
-                </td>
+                <td
+                  className="description"
+                  style={{
+                    fontSize: 18,
+                    fontWeight: 400,
+                    lineHeight: "20.9px",
+                  }}
+                  dangerouslySetInnerHTML={{ __html: currentData?.description }}
+                ></td>
               </tr>
             ) : null}
-            {currentData?.showLink && currentData?.link ? (
+            {currentData?.link ? (
               <tr>
                 <td style={{ paddingBottom: 10 }}>
                   <a
                     href={currentData?.link}
+                    target="_blank"
                     style={{
                       fontSize: 18,
                       fontWeight: 700,

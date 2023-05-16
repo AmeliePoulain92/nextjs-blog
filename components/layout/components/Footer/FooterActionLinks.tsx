@@ -1,5 +1,10 @@
 import { NewsletterItemAccessType } from "@newsletter/utils/enums";
-import { getElseTag, getStartMergeTag } from "@newsletter/utils/mailchimpTags";
+import {
+  getElseTag,
+  getEndMergeTag,
+  getStartMergeTag,
+  getUnsubscribeLink,
+} from "@newsletter/utils/mailchimpTags";
 
 export default function FooterActionLinks() {
   return (
@@ -15,10 +20,10 @@ export default function FooterActionLinks() {
             margin: 0,
           }}
         >
-          {/* TODO insert real links */}
           {getStartMergeTag(NewsletterItemAccessType.Subscribers)}
           <a
             href="https://app.bevnet.com/subscription"
+            target="_blank"
             style={{
               display: "inline-block",
               fontSize: 14,
@@ -34,6 +39,7 @@ export default function FooterActionLinks() {
           {getElseTag()}
           <a
             href="https://app.bevnet.com/subscribe"
+            target="_blank"
             style={{
               display: "inline-block",
               fontSize: 14,
@@ -46,6 +52,7 @@ export default function FooterActionLinks() {
           >
             Become an Insider
           </a>{" "}
+          {getEndMergeTag(NewsletterItemAccessType.Subscribers)}
           <span
             style={{
               color: "#006177",
@@ -55,6 +62,7 @@ export default function FooterActionLinks() {
           </span>{" "}
           <a
             href="https://www.bevnet.com/submit/news"
+            target="_blank"
             style={{
               display: "inline-block",
               fontSize: 14,
@@ -76,6 +84,7 @@ export default function FooterActionLinks() {
           </span>{" "}
           <a
             href="https://www.bevnet.com/advertise"
+            target="_blank"
             style={{
               display: "inline-block",
               fontSize: 14,
@@ -96,7 +105,8 @@ export default function FooterActionLinks() {
             &#x2022;
           </span>{" "}
           <a
-            href="*|UNSUB|*"
+            href={getUnsubscribeLink()}
+            target="_blank"
             style={{
               display: "inline-block",
               fontSize: 14,

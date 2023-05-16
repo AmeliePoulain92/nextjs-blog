@@ -4,18 +4,24 @@ export default function HeaderBottom() {
       <td
         align="center"
         style={{
-          fontFamily: "Arial, Helvetica, sans-serif",
-          fontSize: "25px",
-          fontWeight: "700",
-          padding: "9px 25px",
-          lineHeight: "25px",
-          letterSpacing: "0.2em",
-          textAlign: "center",
-          color: "#ffffff",
+          padding: "5px 25px",
           background: "#006177",
         }}
       >
-        DAILY NEWSLETTER
+        <h1
+          style={{
+            fontFamily: "Arial, Helvetica, sans-serif",
+            fontSize: 25,
+            fontWeight: 700,
+            lineHeight: "29px",
+            textAlign: "center",
+            letterSpacing: "0.2em",
+            color: "#ffffff",
+            margin: 0,
+          }}
+        >
+          DAILY BRIEFING
+        </h1>
       </td>
     </tr>
   );

@@ -25,19 +25,8 @@ export function isCustomItem(item: NewsLetterItem): boolean {
     return Boolean(item.itemType === NewsletterItemType.Custom);
 }
 
-export function getTopStoryArticle(data: NewsLetter): NewsLetterItem | undefined {
-    if (!data || !data.items) return undefined;
-    const featuredStories = getItemsByType(data, NewsletterItemType.FeaturedStories);
-
-    if (featuredStories && featuredStories.length) return featuredStories[0];
-    return undefined;
-}
-
-export function getIsTopStoryArticle(data: NewsLetter, item: NewsLetterItem): boolean {
-    if (!data || !data.items || !item) return false;
-    const topStoryArticle = getTopStoryArticle(data);
-
-    return Boolean(topStoryArticle && topStoryArticle.id === item.id);
+export function isJobItem(item: NewsLetterItem): boolean {
+    return Boolean(item.itemType === NewsletterItemType.FeaturedJobs || item.itemType === NewsletterItemType.StandardJobs);
 }
 
 export function getSponsoredMessageArticleIndex(data: NewsLetter): number {
@@ -63,11 +52,10 @@ export function getIsSponsoredPostArticle(item: NewsLetterItem): boolean {
     return item?.itemType === NewsletterItemType.SponsoredPosts;
 }
 
-// TODO test
 export function get3rdArticleIndex(data: NewsLetter): number {
     if (!data || !data.items) return -1;
     const articles = getArticles(data);
-    if (articles && articles.length >= 2) {
+    if (articles && articles.length >= 3) {
         const thirdArticle = articles[2];
         return data?.items.findIndex(item => item.id === thirdArticle.id);
     } else {

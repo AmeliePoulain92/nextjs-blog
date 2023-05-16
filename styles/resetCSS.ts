@@ -27,4 +27,4 @@ a:hover {
 img {
   max-width: 100% !important;
 }
-`
+`;

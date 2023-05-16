@@ -1,6 +1,8 @@
 export interface NewsLetter {
-    title: string,
-    subject: string,
+    title?: string,
+    subject?: string,
+    previewText?: string,
+    targetSite: number,
     items: NewsLetterItem[]
 }
 
@@ -14,8 +16,22 @@ export interface NewsLetterItem {
     accessType?: number,
     itemType?: number,
     orderBy?: number
-    // TODO use those boolean flags
-    showDescription?: boolean,
-    showImage?: boolean,
-    showLink?: boolean
+}
+
+export interface Theme {
+    targetSite: NewsLetter["targetSite"],
+    websiteLink: string,
+    header: {
+        logo: string,
+        textColor: string,
+        dateFontWeight: number,
+        titleColor: string,
+        titleBackground: string
+    },
+    footer: {
+        insider: {
+            buttonBackground: string
+        },
+    },
+    linkBorderColor: string
 }

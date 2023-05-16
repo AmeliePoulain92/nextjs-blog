@@ -1,9 +1,6 @@
 import { NewsletterItemType } from "./enums";
 
 const {
-    LeaderboardAd,
-    FeaturedJobs,
-    StandardJobs,
     LeaderboardAdMessage,
     FeaturedStories,
     PressReleases,
@@ -12,9 +9,6 @@ const {
 } = NewsletterItemType
 
 export const staticOrderedItems = [
-    LeaderboardAd,
-    FeaturedJobs,
-    StandardJobs,
     LeaderboardAdMessage,
 ];
 

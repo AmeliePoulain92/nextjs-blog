@@ -10,6 +10,7 @@ export default function OutlookInsiderButton() {
         >
           <a
             href="https://app.bevnet.com/subscribe"
+            target="_blank"
             style="
               display: block;
               width: 100%;
@@ -20,7 +21,7 @@ export default function OutlookInsiderButton() {
               color: #ffffff;
             "
           >
-            Become an Insider Outlook
+            Become an Insider
           </a>
         </td>
         <!--![endif]-->`

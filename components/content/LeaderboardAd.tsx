@@ -1,37 +1,33 @@
 import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
-import { NewsletterItemType } from "@newsletter/utils/enums";
-import { getItemsByType } from "@newsletter/utils/getItems";
-import { NewsLetter as NewsLetterInterface } from "@newsletter/utils/interfaces";
+import { NewsLetterItem as NewsLetterItemInterface } from "@newsletter/utils/interfaces";
 
 interface LeaderboardAdProps {
-  data: NewsLetterInterface;
+  item: NewsLetterItemInterface;
 }
 
-export default function LeaderboardAd({ data }: LeaderboardAdProps) {
-  const getItems = getItemsByType(data, NewsletterItemType.LeaderboardAd);
-  const currentData = getItems && getItems.length ? getItems[0] : null;
-
+export default function LeaderboardAd({ item }: LeaderboardAdProps) {
   return (
     <tr>
-      <MailchimpTagsWrapper accessType={currentData?.accessType}>
-        <td align="center" width="100%" style={{ paddingBottom: 31 }}>
-          <a
-            href={currentData?.link}
-            style={{ display: "block", textDecoration: "none" }}
-          >
-            <img
-              src={currentData?.image}
-              alt="Banner Ad Hold"
-              width={530}
-              height={120}
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                verticalAlign: "middle",
-              }}
-            />
-          </a>
-        </td>
+      <MailchimpTagsWrapper accessType={item?.accessType}>
+        {item?.image ? (
+          <td align="center" width="100%" style={{ paddingBottom: 31 }}>
+            <a
+              href={item?.link || undefined}
+              target="_blank"
+              style={{ display: "block", textDecoration: "none" }}
+            >
+              <img
+                src={item?.image}
+                alt="Banner Ad Hold"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  verticalAlign: "middle",
+                }}
+              />
+            </a>
+          </td>
+        ) : null}
       </MailchimpTagsWrapper>
     </tr>
   );
