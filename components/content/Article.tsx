@@ -94,7 +94,9 @@ export default function Article({
                       }}
                     >
                       <img
+                      // @ts-ignore
                         ref={imageRef}
+                        // @ts-ignore
                         onLoad={imageOnLoad}
                         src={item?.image}
                         alt={item?.title}
