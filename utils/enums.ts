@@ -16,10 +16,3 @@ export enum NewsletterItemType {
     SponsoredMessage = 9,
     SectionTitle = 10
 }
-
-export enum NewsSites {
-    Bevnet = 1,
-    Brewbound = 2,
-    Nosh = 3,
-    BevnetApp = 4
-}

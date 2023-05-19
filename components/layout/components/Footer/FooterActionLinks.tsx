@@ -26,7 +26,7 @@ export default function FooterActionLinks() {
             target="_blank"
             style={{
               display: "inline-block",
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: 400,
               lineHeight: "16.26px",
               textDecoration: "underline",
@@ -42,7 +42,7 @@ export default function FooterActionLinks() {
             target="_blank"
             style={{
               display: "inline-block",
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: 400,
               lineHeight: "16.26px",
               textDecoration: "underline",
@@ -65,7 +65,7 @@ export default function FooterActionLinks() {
             target="_blank"
             style={{
               display: "inline-block",
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: 400,
               lineHeight: "16.26px",
               textDecoration: "underline",
@@ -87,7 +87,7 @@ export default function FooterActionLinks() {
             target="_blank"
             style={{
               display: "inline-block",
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: 400,
               lineHeight: "16.26px",
               textDecoration: "underline",
@@ -109,7 +109,7 @@ export default function FooterActionLinks() {
             target="_blank"
             style={{
               display: "inline-block",
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: 400,
               lineHeight: "16.26px",
               textDecoration: "underline",

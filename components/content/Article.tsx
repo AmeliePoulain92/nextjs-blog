@@ -1,3 +1,4 @@
+import { useImageLoaded } from "@newsletter/hooks/useImageLoaded";
 import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
 import { NewsLetterItem as NewsLetterItemInterface } from "@newsletter/utils/interfaces";
 
@@ -12,6 +13,7 @@ export default function Article({
   isSponsoredMessage,
   isSponsoredPost,
 }: ArticleProps) {
+  const [imageRef, imageDimensions, imageOnLoad] = useImageLoaded();
   const getSponsoredMessage = (): string => {
     if (isSponsoredMessage) {
       return item?.companyName
@@ -24,7 +26,7 @@ export default function Article({
   return (
     <tr>
       <MailchimpTagsWrapper accessType={item?.accessType}>
-        <td style={{ paddingBottom: 25 }}>
+        <td style={{ paddingBottom: 15 }}>
           <table width="100%" cellPadding={0} cellSpacing={0} border={0}>
             <tbody>
               <tr>
@@ -33,7 +35,7 @@ export default function Article({
                     isSponsoredMessage || isSponsoredPost
                       ? { paddingBottom: 5 }
                       : item?.image
-                      ? { paddingBottom: 15 }
+                      ? { paddingBottom: 10 }
                       : undefined
                   }
                 >
@@ -47,9 +49,9 @@ export default function Article({
                       target="_blank"
                       style={{
                         display: "block",
-                        fontSize: 18,
+                        fontSize: 20,
                         fontWeight: 700,
-                        lineHeight: "21px",
+                        lineHeight: "23px",
                         textDecoration: "none !important",
                         color: "#000000",
                       }}
@@ -92,8 +94,12 @@ export default function Article({
                       }}
                     >
                       <img
+                        ref={imageRef}
+                        onLoad={imageOnLoad}
                         src={item?.image}
                         alt={item?.title}
+                        width={imageDimensions?.width}
+                        height={imageDimensions?.height}
                         style={{
                           maxWidth: "100%",
                           height: "auto",

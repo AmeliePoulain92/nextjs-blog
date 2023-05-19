@@ -31,7 +31,7 @@ export default function NewsletterItem({ data, item }: NewsLetterProps) {
         <LeaderboardAd item={item} key={item.id} />
       )}
       {item?.itemType === NewsletterItemType.SectionTitle && (
-        <SectionTitle title={item?.title} key={item.id} />
+        <SectionTitle item={item} key={item.id} />
       )}
       {isJobItem(item) && <JobsItem item={item} key={item.id} />}
       {isCustomItem(item) && <CustomContent item={item} key={item.id} />}

@@ -6,7 +6,9 @@ import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
 export default function FooterInsider() {
   return (
     <tr>
-      <MailchimpTagsWrapper accessType={NewsletterItemAccessType.NonSubscribers}>
+      <MailchimpTagsWrapper
+        accessType={NewsletterItemAccessType.NonSubscribers}
+      >
         <td
           className="footerInsiderCell"
           // @ts-ignore
@@ -39,29 +41,16 @@ export default function FooterInsider() {
               <tr>
                 <td
                   style={{
-                    fontSize: "20px",
-                    fontWeight: "700",
-                    lineHeight: "23.22px",
-                    paddingBottom: "10px",
-                    textTransform: "uppercase",
-                    color: "#14a7bd",
-                  }}
-                >
-                  &#128526; JOIN OUR INSIDER COMMUNITY
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style={{
                     paddingBottom: "25px",
                     fontSize: "18px",
-                    fontWeight: "700",
+                    fontWeight: 400,
                     lineHeight: "21px",
                     color: "#ffffff",
                   }}
                 >
                   <p style={{ margin: "0" }}>
-                    Become an Insider to unlock every story on{" "}
+                    Become an Insider to gain access to exclusive Insider-only
+                    newsletter content, as well as all digital content on{" "}
                     <a
                       href="https://www.bevnet.com/"
                       target="_blank"
@@ -83,11 +72,11 @@ export default function FooterInsider() {
                         color: "#ffffff",
                       }}
                     >
-                      Nosh.com
-                    </a>
-                    . Plus, you can access job board discounts, watch interviews
-                    with top CPG experts, and tap into our community of engaged
-                    food and beverage professionals.
+                      NOSH.com
+                    </a>. Tap into our video archives, including Community Call
+                    and educational series, unlock event and job listing
+                    discounts, and engage with our community of  food and
+                    beverage professionals.
                   </p>
                 </td>
               </tr>

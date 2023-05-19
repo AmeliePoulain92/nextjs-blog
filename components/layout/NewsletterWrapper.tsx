@@ -52,8 +52,7 @@ export default function NewsletterWrapper({ children }: Props) {
                       align="center"
                       border={0}
                       style={{
-                        fontFamily:
-                          "Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif",
+                        fontFamily: "Arial, sans-serif",
                         margin: "0 auto",
                         padding: "0",
                         width: "100%",

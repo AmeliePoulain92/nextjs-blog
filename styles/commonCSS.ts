@@ -7,4 +7,7 @@ export const commonCSS = `
         border-bottom: 2px solid #ff3556;
         color: #000000;
     }
+    .description p {
+        margin: 10px 0;
+    }
 `;

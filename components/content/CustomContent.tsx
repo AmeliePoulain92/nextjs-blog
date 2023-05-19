@@ -19,25 +19,47 @@ export default function CustomContent({ item }: CustomContentProps) {
                       paddingBottom: item?.image ? 15 : undefined,
                     }}
                   >
-                    <h4
-                      style={{ fontSize: 18, margin: 0 }}
-                      dangerouslySetInnerHTML={{ __html: item?.title || "" }}
-                    ></h4>
+                    <h4 style={{ fontSize: 20, fontWeight: 700, margin: 0 }}>
+                      <a
+                        href={item?.link || undefined}
+                        target="_blank"
+                        style={{
+                          display: "block",
+                          fontSize: 20,
+                          fontWeight: 700,
+                          lineHeight: "21px",
+                          textDecoration: "none !important",
+                          color: "#000000",
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: item?.title || "",
+                        }}
+                      ></a>
+                    </h4>
                   </td>
                 </tr>
               ) : null}
               {item?.image ? (
                 <tr>
                   <td align="center">
-                    <img
-                      src={item?.image}
-                      alt={item?.title || "image"}
+                    <a
+                      href={item?.link || undefined}
+                      target="_blank"
                       style={{
-                        maxWidth: "100%",
-                        height: "auto",
-                        verticalAlign: "middle",
+                        display: "inline-block",
+                        textDecoration: "none !important",
                       }}
-                    />
+                    >
+                      <img
+                        src={item?.image}
+                        alt={item?.title}
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto",
+                          verticalAlign: "middle",
+                        }}
+                      />
+                    </a>
                   </td>
                 </tr>
               ) : null}
@@ -53,26 +75,6 @@ export default function CustomContent({ item }: CustomContentProps) {
                       __html: item?.description,
                     }}
                   ></td>
-                </tr>
-              ) : null}
-              {item?.link ? (
-                <tr>
-                  <td>
-                    <a
-                      href={item?.link}
-                      target="_blank"
-                      style={{
-                        fontSize: 18,
-                        fontWeight: 600,
-                        lineHeight: "21px",
-                        textDecoration: "none !important",
-                        borderBottom: "2px solid #ff3556",
-                        color: "#000000",
-                      }}
-                    >
-                      Learn More.
-                    </a>
-                  </td>
                 </tr>
               ) : null}
             </tbody>

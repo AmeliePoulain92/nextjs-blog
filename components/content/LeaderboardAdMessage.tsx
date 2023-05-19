@@ -21,18 +21,32 @@ export default function LeaderboardAdMessage({
       <td>
         <table width="100%" cellPadding={0} cellSpacing={0} border={0}>
           <tbody>
-            <SectionTitle title="&#10024; Sponsored by &#10024;" />
+            <SectionTitle
+              item={{ id: 1, title: "&#10024; Sponsored by &#10024;" }}
+            />
             <tr>
               <td>
                 <h3
                   style={{
-                    fontSize: 20,
-                    fontWeight: 700,
-                    lineHeight: "23.22px",
                     margin: 0,
                   }}
-                  dangerouslySetInnerHTML={{ __html: currentData?.title || "" }}
-                ></h3>
+                >
+                  <a
+                    href={currentData?.link || undefined}
+                    target="_blank"
+                    style={{
+                      display: "block",
+                      fontSize: 20,
+                      fontWeight: 700,
+                      lineHeight: "23.22px",
+                      textDecoration: "none !important",
+                      color: "#000000",
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: currentData?.title || "",
+                    }}
+                  ></a>
+                </h3>
               </td>
             </tr>
             {currentData?.description ? (
@@ -46,26 +60,6 @@ export default function LeaderboardAdMessage({
                   }}
                   dangerouslySetInnerHTML={{ __html: currentData?.description }}
                 ></td>
-              </tr>
-            ) : null}
-            {currentData?.link ? (
-              <tr>
-                <td style={{ paddingBottom: 10 }}>
-                  <a
-                    href={currentData?.link}
-                    target="_blank"
-                    style={{
-                      fontSize: 18,
-                      fontWeight: 700,
-                      lineHeight: "21px",
-                      textDecoration: "none !important",
-                      borderBottom: "2px solid #ff3556",
-                      color: "#000000",
-                    }}
-                  >
-                    Learn More
-                  </a>
-                </td>
               </tr>
             ) : null}
           </tbody>

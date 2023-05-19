@@ -1,10 +1,6 @@
-import { ThemeContext } from "@newsletter/context/ThemeContext";
 import { getCurrentDate } from "@newsletter/utils/mailchimpTags";
-import { useContext } from "react";
 
 export default function HeaderTop() {
-  const theme = useContext(ThemeContext);
-
   return (
     <tr>
       <td className="headerTopCell" width="100%" style={{ padding: 15 }}>
@@ -27,7 +23,7 @@ export default function HeaderTop() {
                   }}
                 >
                   <img
-                    src={theme?.header?.logo}
+                    src="https://d2btcxja5g5zgs.cloudfront.net/assets/img/BevNET_Red.png"
                     title="BevNET"
                     alt="BevNET"
                     // @ts-ignore
@@ -48,9 +44,9 @@ export default function HeaderTop() {
                 style={{
                   fontFamily: "Arial, sans-serif",
                   fontSize: 14,
-                  fontWeight: theme?.header?.dateFontWeight,
+                  fontWeight: 400,
                   lineHeight: "18.4px",
-                  color: theme?.header?.textColor,
+                  color: "#14a7bd",
                 }}
               >
                 {getCurrentDate()}
