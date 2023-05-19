@@ -1,3 +1,5 @@
+'use client'
+
 import { useImageLoaded } from "@newsletter/hooks/useImageLoaded";
 import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
 import { NewsLetterItem as NewsLetterItemInterface } from "@newsletter/utils/interfaces";
