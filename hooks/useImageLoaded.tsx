@@ -2,10 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
-  const [imageDimensions, setImageDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
+  const [imageDimensions, setImageDimensions] = useState({});
   const ref = useRef<HTMLImageElement>();
 
   const onLoad = () => {
