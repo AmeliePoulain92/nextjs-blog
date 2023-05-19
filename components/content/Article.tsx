@@ -100,7 +100,9 @@ export default function Article({
                         onLoad={imageOnLoad}
                         src={item?.image}
                         alt={item?.title}
+                        // @ts-ignore
                         width={imageDimensions?.width}
+                        // @ts-ignore
                         height={imageDimensions?.height}
                         style={{
                           maxWidth: "100%",
