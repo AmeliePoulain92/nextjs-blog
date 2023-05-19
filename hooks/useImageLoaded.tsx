@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export const useImageLoaded = () => {
   const [loaded, setLoaded] = useState(false);
   const [imageDimensions, setImageDimensions] = useState({});
-  const ref = useRef<HTMLImageElement>();
+  const ref = useRef<HTMLImageElement>(null);
 
   const onLoad = () => {
     setLoaded(true);
