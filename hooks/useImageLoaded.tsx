@@ -17,7 +17,7 @@ export const useImageLoaded = () => {
         height: ref?.current?.clientHeight,
       });
     }
-  }, []);
+  }, [ref?.current?.complete]);
 
-  return [ref, imageDimensions, loaded, onLoad];
+  return [ref, imageDimensions, onLoad, loaded];
 };

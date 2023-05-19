@@ -96,8 +96,8 @@ export default function Article({
                       }}
                     >
                       <img
-                      // @ts-ignore
                         title="testest"
+                        // @ts-ignore
                         ref={imageRef}
                         // @ts-ignore
                         onLoad={imageOnLoad}
