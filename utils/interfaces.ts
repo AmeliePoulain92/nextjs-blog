@@ -16,3 +16,15 @@ export interface NewsLetterItem {
     itemType?: number,
     orderBy?: number
 }
+
+export interface NewsletterPreview {
+    id: number,
+    guid: string,
+    title?: string,
+    previewText?: string
+}
+
+export interface GridNewsletterPreview {
+    total: number,
+    result: NewsletterPreview[]
+}

@@ -1,4 +1,3 @@
-import { useImageLoaded } from "@newsletter/hooks/useImageLoaded";
 import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
 import { NewsLetterItem as NewsLetterItemInterface } from "@newsletter/utils/interfaces";
 
@@ -13,7 +12,6 @@ export default function Article({
   isSponsoredMessage,
   isSponsoredPost,
 }: ArticleProps) {
-  const [imageRef, imageDimensions, imageOnLoad] = useImageLoaded();
   const getSponsoredMessage = (): string => {
     if (isSponsoredMessage) {
       return item?.companyName
@@ -94,17 +92,8 @@ export default function Article({
                       }}
                     >
                       <img
-                        title="testest"
-                        // @ts-ignore
-                        ref={imageRef}
-                        // @ts-ignore
-                        onLoad={imageOnLoad}
                         src={item?.image}
                         alt={item?.title}
-                        // @ts-ignore
-                        width={imageDimensions?.width}
-                        // @ts-ignore
-                        height={imageDimensions?.height}
                         style={{
                           maxWidth: "100%",
                           height: "auto",

@@ -1,0 +1,1 @@
+export { UserBadgePanel } from './UserBadgePanel';
