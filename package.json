@@ -4,12 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "del /f /Q build && next build && copy *.json build && copy *.js build && xcopy public build\\public /E /H /C /I && xcopy pages build\\pages /E /H /C /I && xcopy styles build\\styles /E /H /C /I && del /f /Q build\\next.config.js",
+    "build_bash": "rm -r -f build && next build && cp *.json build && cp *.js build && cp -r public build\\public && cp -r pages build\\pages && cp -r styles build\\styles && rm -r -f build\\next.config.js",
     "start": "next start",
     "lint": "next lint",
     "testBuild": "jest --watchAll=false --passWithNoTests"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.61",
