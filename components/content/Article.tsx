@@ -1,5 +1,9 @@
 import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
 import { NewsLetterItem as NewsLetterItemInterface } from "@newsletter/utils/interfaces";
+import OutlookContentImage from "./Images/OutlookContentImage";
+import NonOutlookContentImage from "./Images/NonOutlookContentImage";
+import { isImagePlacedBelowTheDescription } from "@newsletter/utils/getItems";
+import ContentImage from "./Images/ContentImage";
 
 interface ArticleProps {
   item: NewsLetterItemInterface;
@@ -24,7 +28,7 @@ export default function Article({
   return (
     <tr>
       <MailchimpTagsWrapper accessType={item?.accessType}>
-        <td style={{ paddingBottom: 15 }}>
+        <td style={{ paddingBottom: 25 }}>
           <table width="100%" cellPadding={0} cellSpacing={0} border={0}>
             <tbody>
               <tr>
@@ -32,7 +36,7 @@ export default function Article({
                   style={
                     isSponsoredMessage || isSponsoredPost
                       ? { paddingBottom: 5 }
-                      : item?.image
+                      : item?.image && !isImagePlacedBelowTheDescription(item)
                       ? { paddingBottom: 10 }
                       : undefined
                   }
@@ -64,7 +68,10 @@ export default function Article({
                 <tr>
                   <td
                     style={{
-                      paddingBottom: item?.image ? 10 : undefined,
+                      paddingBottom:
+                        item?.image && !isImagePlacedBelowTheDescription(item)
+                          ? 10
+                          : undefined,
                     }}
                   >
                     <span
@@ -80,30 +87,10 @@ export default function Article({
                   </td>
                 </tr>
               )}
-              {item?.image ? (
-                <tr>
-                  <td align="center">
-                    <a
-                      href={item?.link || undefined}
-                      target="_blank"
-                      style={{
-                        display: "inline-block",
-                        textDecoration: "none !important",
-                      }}
-                    >
-                      <img
-                        src={item?.image}
-                        alt={item?.title}
-                        style={{
-                          maxWidth: "100%",
-                          height: "auto",
-                          verticalAlign: "middle",
-                        }}
-                      />
-                    </a>
-                  </td>
-                </tr>
-              ) : null}
+              <ContentImage
+                item={item}
+                isShow={!isImagePlacedBelowTheDescription(item)}
+              />
               {item?.description ? (
                 <tr>
                   <td
@@ -111,12 +98,16 @@ export default function Article({
                     style={{
                       fontSize: 18,
                       fontWeight: 400,
-                      lineHeight: "20.9px",
+                      lineHeight: "26px",
                     }}
                     dangerouslySetInnerHTML={{ __html: item?.description }}
                   ></td>
                 </tr>
               ) : null}
+              <ContentImage
+                item={item}
+                isShow={isImagePlacedBelowTheDescription(item)}
+              />
             </tbody>
           </table>
         </td>

@@ -1,5 +1,9 @@
 import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
 import { NewsLetterItem } from "@newsletter/utils/interfaces";
+import NonOutlookContentImage from "./Images/NonOutlookContentImage";
+import OutlookContentImage from "./Images/OutlookContentImage";
+import ContentImage from "./Images/ContentImage";
+import { isImagePlacedBelowTheDescription } from "@newsletter/utils/getItems";
 
 interface CustomContentProps {
   item: NewsLetterItem;
@@ -39,37 +43,17 @@ export default function CustomContent({ item }: CustomContentProps) {
                   </td>
                 </tr>
               ) : null}
-              {item?.image ? (
-                <tr>
-                  <td align="center">
-                    <a
-                      href={item?.link || undefined}
-                      target="_blank"
-                      style={{
-                        display: "inline-block",
-                        textDecoration: "none !important",
-                      }}
-                    >
-                      <img
-                        src={item?.image}
-                        alt={item?.title}
-                        style={{
-                          maxWidth: "100%",
-                          height: "auto",
-                          verticalAlign: "middle",
-                        }}
-                      />
-                    </a>
-                  </td>
-                </tr>
-              ) : null}
+              <ContentImage
+                item={item}
+                isShow={!isImagePlacedBelowTheDescription(item)}
+              />
               {item?.description ? (
                 <tr>
                   <td
                     className="description"
                     style={{
                       fontSize: 18,
-                      lineHeight: "20.9px",
+                      lineHeight: "26px",
                     }}
                     dangerouslySetInnerHTML={{
                       __html: item?.description,
@@ -77,6 +61,10 @@ export default function CustomContent({ item }: CustomContentProps) {
                   ></td>
                 </tr>
               ) : null}
+              <ContentImage
+                item={item}
+                isShow={isImagePlacedBelowTheDescription(item)}
+              />
             </tbody>
           </table>
         </td>

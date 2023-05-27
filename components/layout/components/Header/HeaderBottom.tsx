@@ -1,11 +1,15 @@
+import { ThemeContext } from "@newsletter/context/ThemeContext";
 import { NewsletterItemAccessType } from "@newsletter/utils/enums";
 import {
   getElseTag,
   getEndMergeTag,
   getStartMergeTag,
 } from "@newsletter/utils/mailchimpTags";
+import { useContext } from "react";
 
 export default function HeaderBottom() {
+  const theme = useContext(ThemeContext);
+
   return (
     <tr>
       <td>
@@ -22,8 +26,8 @@ export default function HeaderBottom() {
                   lineHeight: "25px",
                   letterSpacing: "0.2em",
                   textAlign: "center",
-                  color: "#ffffff",
-                  background: "#006177",
+                  color: theme?.header?.titleColor,
+                  background: theme?.header?.titleBackground,
                 }}
               >
                 {getStartMergeTag(NewsletterItemAccessType.Subscribers)}

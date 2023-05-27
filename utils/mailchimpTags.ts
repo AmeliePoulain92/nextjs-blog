@@ -35,3 +35,7 @@ export function getListDescription(): string {
 export function getUnsubscribeLink(): string {
     return "*|UNSUB|*";
 }
+
+export function getUpdateSubscriptionLink(): string {
+    return "*|UPDATE_PROFILE|*";
+}

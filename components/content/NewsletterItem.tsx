@@ -15,6 +15,7 @@ import { NewsletterItemType } from "@newsletter/utils/enums";
 import LeaderboardAd from "./LeaderboardAd";
 import JobsItem from "./JobsItem";
 import SectionTitle from "./SectionTitle";
+import LeaderboardAdMessage from "./LeaderboardAdMessage";
 
 interface NewsLetterProps {
   data: NewsLetterInterface;
@@ -29,6 +30,9 @@ export default function NewsletterItem({ data, item }: NewsLetterProps) {
     <>
       {item?.itemType === NewsletterItemType.LeaderboardAd && (
         <LeaderboardAd item={item} key={item.id} />
+      )}
+      {item?.itemType === NewsletterItemType.LeaderboardAdMessage && (
+        <LeaderboardAdMessage item={item} />
       )}
       {item?.itemType === NewsletterItemType.SectionTitle && (
         <SectionTitle item={item} key={item.id} />

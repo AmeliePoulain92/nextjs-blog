@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import FooterActionLinks from "./FooterActionLinks";
 import FooterCopyright from "./FooterCopyright";
 import FooterSocialLinks from "./FooterSocialLinks";
+import { ThemeContext } from "@newsletter/context/ThemeContext";
 
 export default function FooterBottom() {
+  const theme = useContext(ThemeContext);
+
   return (
     <tr>
       <td
@@ -43,10 +47,9 @@ export default function FooterBottom() {
                   >
                     BevNET.com
                   </a>
-                  , Inc. 65 Chapel Street, Newton, MA 02458{" "}
-                  <br />
+                  , Inc. 65 Chapel Street, Newton, MA 02458 <br />
                   <a
-                    href="mailto:hello@bevnet.com"
+                    href={`mailto:${theme?.email}`}
                     target="_blank"
                     style={{
                       textDecoration: "none",
@@ -54,7 +57,7 @@ export default function FooterBottom() {
                       color: "#006177 !important",
                     }}
                   >
-                    hello@bevnet.com
+                    {theme?.email}
                   </a>
                 </p>
               </td>

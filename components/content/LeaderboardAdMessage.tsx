@@ -1,70 +1,83 @@
-import { NewsletterItemType } from "@newsletter/utils/enums";
-import { getItemsByType } from "@newsletter/utils/getItems";
-import { NewsLetter as NewsLetterInterface } from "@newsletter/utils/interfaces";
-import SectionTitle from "./SectionTitle";
+import { NewsLetterItem as NewsLetterItemInterface } from "@newsletter/utils/interfaces";
+import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
+import { getFormattedDescription } from "@newsletter/utils/html";
 
 interface LeaderboardAdMessageProps {
-  data: NewsLetterInterface;
+  item: NewsLetterItemInterface;
 }
 
 export default function LeaderboardAdMessage({
-  data,
+  item,
 }: LeaderboardAdMessageProps) {
-  const getItems = getItemsByType(
-    data,
-    NewsletterItemType.LeaderboardAdMessage
-  );
-  const currentData = getItems && getItems.length ? getItems[0] : null;
+  const getSponsoredMessage = (): string => {
+    return item?.companyName
+      ? `Sponsored message from ${item?.companyName}`
+      : "Sponsored message";
+  };
+  const description = getFormattedDescription(item);
 
-  return currentData ? (
+  return (
     <tr>
-      <td>
-        <table width="100%" cellPadding={0} cellSpacing={0} border={0}>
-          <tbody>
-            <SectionTitle
-              item={{ id: 1, title: "&#10024; Sponsored by &#10024;" }}
-            />
-            <tr>
-              <td>
-                <h3
-                  style={{
-                    margin: 0,
-                  }}
-                >
-                  <a
-                    href={currentData?.link || undefined}
-                    target="_blank"
-                    style={{
-                      display: "block",
-                      fontSize: 20,
-                      fontWeight: 700,
-                      lineHeight: "23.22px",
-                      textDecoration: "none !important",
-                      color: "#000000",
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: currentData?.title || "",
-                    }}
-                  ></a>
-                </h3>
-              </td>
-            </tr>
-            {currentData?.description ? (
+      <MailchimpTagsWrapper accessType={item?.accessType}>
+        <td style={{ paddingBottom: 20 }}>
+          <table width="100%" cellPadding={0} cellSpacing={0} border={0}>
+            <tbody>
               <tr>
-                <td
-                  className="description"
-                  style={{
-                    fontSize: 18,
-                    fontWeight: 400,
-                    lineHeight: "20.9px",
-                  }}
-                  dangerouslySetInnerHTML={{ __html: currentData?.description }}
-                ></td>
+                <td style={{ paddingBottom: 5 }}>
+                  <h3
+                    style={{
+                      margin: 0,
+                    }}
+                  >
+                    <a
+                      href={item?.link || undefined}
+                      target="_blank"
+                      style={{
+                        display: "block",
+                        fontSize: 20,
+                        fontWeight: 700,
+                        lineHeight: "23.22px",
+                        textDecoration: "none !important",
+                        color: "#000000",
+                      }}
+                      dangerouslySetInnerHTML={{
+                        __html: item?.title || "",
+                      }}
+                    ></a>
+                  </h3>
+                </td>
               </tr>
-            ) : null}
-          </tbody>
-        </table>
-      </td>
+              <tr>
+                <td>
+                  <span
+                    style={{
+                      fontSize: 15,
+                      fontWeight: 400,
+                      lineHeight: "17.42px",
+                      color: "#14a7bd",
+                    }}
+                  >
+                    {getSponsoredMessage()}
+                  </span>
+                </td>
+              </tr>
+              {item?.description ? (
+                <tr>
+                  <td
+                    className="description"
+                    style={{
+                      fontSize: 18,
+                      fontWeight: 400,
+                      lineHeight: "26px",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  ></td>
+                </tr>
+              ) : null}
+            </tbody>
+          </table>
+        </td>
+      </MailchimpTagsWrapper>
     </tr>
-  ) : null;
+  );
 }

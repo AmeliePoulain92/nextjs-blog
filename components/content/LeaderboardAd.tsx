@@ -19,6 +19,7 @@ export default function LeaderboardAd({ item }: LeaderboardAdProps) {
               <img
                 src={item?.image}
                 alt="Banner Ad Hold"
+                width="100%"
                 style={{
                   maxWidth: "100%",
                   height: "auto",

@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import Head from "next/head";
-import { mainCss } from "@newsletter/styles/mainCSS";
+import { mainCSS } from "@newsletter/styles/mainCSS";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <>
       <style jsx global>
-        {mainCss}
+        {mainCSS}
       </style>
       <Head>
         <title>Daily Briefing</title>

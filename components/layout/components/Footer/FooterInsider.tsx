@@ -2,8 +2,12 @@ import { NewsletterItemAccessType } from "@newsletter/utils/enums";
 import NonOutlookInsiderButton from "../CTAButtons/NonOutlookInsiderButton";
 import OutlookInsiderButton from "../CTAButtons/OutlookInsiderButton";
 import MailchimpTagsWrapper from "@newsletter/layouts/MailchimpTagsWrapper";
+import { useContext } from "react";
+import { ThemeContext } from "@newsletter/context/ThemeContext";
 
 export default function FooterInsider() {
+  const theme = useContext(ThemeContext);
+
   return (
     <tr>
       <MailchimpTagsWrapper
@@ -29,8 +33,10 @@ export default function FooterInsider() {
               <tr>
                 <td align="center" style={{ paddingBottom: "25px" }}>
                   <img
-                    src="https://d2btcxja5g5zgs.cloudfront.net/assets/images/Insider-Logo.png"
-                    alt="Bevnet and Nosh Insider"
+                    src={theme?.footer?.insider?.logo?.src}
+                    alt="Insider Logo"
+                    width={theme?.footer?.insider?.logo?.width}
+                    height={theme?.footer?.insider?.logo?.height}
                     style={{
                       maxWidth: "100%",
                       height: "auto",
@@ -48,36 +54,12 @@ export default function FooterInsider() {
                     color: "#ffffff",
                   }}
                 >
-                  <p style={{ margin: "0" }}>
-                    Become an Insider to gain access to exclusive Insider-only
-                    newsletter content, as well as all digital content on{" "}
-                    <a
-                      href="https://www.bevnet.com/"
-                      target="_blank"
-                      style={{
-                        fontWeight: "normal",
-                        textDecoration: "none",
-                        color: "#ffffff",
-                      }}
-                    >
-                      BevNET.com
-                    </a>{" "}
-                    and{" "}
-                    <a
-                      href="https://www.nosh.com/"
-                      target="_blank"
-                      style={{
-                        fontWeight: "normal",
-                        textDecoration: "none",
-                        color: "#ffffff",
-                      }}
-                    >
-                      NOSH.com
-                    </a>. Tap into our video archives, including Community Call
-                    and educational series, unlock event and job listing
-                    discounts, and engage with our community of  food and
-                    beverage professionals.
-                  </p>
+                  <p
+                    style={{ margin: "0" }}
+                    dangerouslySetInnerHTML={{
+                      __html: theme?.footer?.insider?.description,
+                    }}
+                  ></p>
                 </td>
               </tr>
               <tr>

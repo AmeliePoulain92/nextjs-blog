@@ -1,4 +1,4 @@
-import { NewsletterItemType } from "./enums";
+import { NewsletterItemImagePosition, NewsletterItemType } from "./enums";
 import { NewsLetter, NewsLetterItem } from "./interfaces";
 import { articleItems } from "./itemTypes";
 
@@ -44,6 +44,10 @@ export function getIsSponsoredMessageArticle(data: NewsLetter, item: NewsLetterI
     const sponsoredMessageArticle = getSponsoredMessageArticle(data);
 
     return Boolean(sponsoredMessageArticle && sponsoredMessageArticle.id === item.id);
+}
+
+export function isImagePlacedBelowTheDescription(item: NewsLetterItem): boolean {
+    return item?.imagePosition === NewsletterItemImagePosition.Below
 }
 
 export function getIsSponsoredPostArticle(item: NewsLetterItem): boolean {
